@@ -67,9 +67,9 @@ Therefore, the easiest way to configure domain.org is to redirect `/.well-known/
 With nginx, it would be as simple as adding:
 
 ```nginx
-location = /.well-known/host-meta {
-       return 301 https://social.example.org$request_uri;
-}
+	location /.well-known/ {
+		rewrite ^(.*) https://social.coletivos.org$request_uri permanent;
+	}
 ```
 
 in example.org's server block.
